@@ -27,6 +27,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(Array.from(compiled.children).map(element => element.tagName.toLowerCase()))
-      .toEqual(['app-header', 'router-outlet', 'app-footer']);
+      .toEqual(['app-header', 'router-outlet', 'app-closing-navigation', 'app-footer']);
   });
 });
