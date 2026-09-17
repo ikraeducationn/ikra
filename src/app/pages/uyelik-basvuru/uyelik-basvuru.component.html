@@ -1,0 +1,78 @@
+<main>
+  <section class="page-intro">
+    <div class="page-inner">
+      <p class="eyebrow">IKRA Üyelik Sistemi · Yaklaşık 2 dakika</p>
+      <h1>IKRA Üyelik Sistemi Uygunluk Formu</h1>
+      <p class="description">Bu kısa form, Üyelik Sisteminin çalışma biçiminin size uygun olup olmadığını netleştirmenize yardımcı olur. Bir sınav veya manuel kabul süreci değildir.</p>
+      <p>Kadın ve erkek yetişkinler için hazırlanmıştır.</p>
+    </div>
+  </section>
+  <section class="form-section">
+    <div class="form-inner">
+      <p class="notice" id="availability"><strong>Üyelik Sistemi hazırlık aşamasındadır; kayıt, ödeme ve öğrenci hesabı açılışı henüz aktif değildir. Form gönderimi henüz aktif değil.</strong> Yanıtlarınız gönderilmez veya kaydedilmez. Şimdilik formu kendiniz için değerlendirebilir, bilgi almak için <a routerLink="/iletisim">bizimle iletişime geçebilirsiniz</a>.</p>
+      <form [formGroup]="form" (ngSubmit)="review()" aria-describedby="availability" novalidate>
+        <p>Hedef alanı isteğe bağlıdır; diğer alanlar gereklidir. Onay kutuları eğitim modelini anlamaya yöneliktir, sözleşme onayı değildir.</p>
+        <fieldset>
+          <legend>İletişim</legend>
+          <label for="full-name">Ad Soyad</label>
+          <input id="full-name" formControlName="name" autocomplete="name" maxlength="100" [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid" aria-describedby="name-error">
+          <span class="error" id="name-error">@if (form.controls.name.touched && form.controls.name.invalid) { Lütfen adınızı ve soyadınızı yazın. }</span>
+          <label for="contact">E-posta veya WhatsApp iletişim bilgisi</label>
+          <input id="contact" formControlName="contact" type="text" maxlength="254" [attr.aria-invalid]="form.controls.contact.touched && form.controls.contact.invalid" aria-describedby="contact-help contact-error">
+          <small id="contact-help">E-posta adresinizi veya ülke koduyla telefon numaranızı yazabilirsiniz.</small>
+          <span class="error" id="contact-error">@if (form.controls.contact.touched && form.controls.contact.invalid) { Geçerli bir e-posta adresi veya telefon numarası yazın. }</span>
+        </fieldset>
+        <fieldset>
+          <legend>Öğrenme deneyiminiz</legend>
+          <label for="level">Mevcut Kur’an seviyeniz</label>
+          <select id="level" formControlName="level" aria-describedby="level-error" [attr.aria-invalid]="form.controls.level.touched && form.controls.level.invalid">
+            <option value="">Seçiniz</option>
+            <option value="beginner">Sıfırdan başlıyorum</option>
+            <option value="letters">Harfleri biliyorum ama okumada zorlanıyorum</option>
+            <option value="reading">Kur’an okuyabiliyorum, okumamı geliştirmek istiyorum</option>
+          </select>
+          <span class="error" id="level-error">@if (form.controls.level.touched && form.controls.level.invalid) { Seviyenizi seçin. }</span>
+          <label for="elifba">Daha önce Elif-Ba çalıştınız mı?</label>
+          <select id="elifba" formControlName="elifba" aria-describedby="elifba-error" [attr.aria-invalid]="form.controls.elifba.touched && form.controls.elifba.invalid">
+            <option value="">Seçiniz</option><option value="yes">Evet</option><option value="no">Hayır</option><option value="unsure">Emin değilim</option>
+          </select>
+          <span class="error" id="elifba-error">@if (form.controls.elifba.touched && form.controls.elifba.invalid) { Bir seçenek seçin. }</span>
+          <label for="routine">Video dersleri kendi zamanınızda izleyip düzenli tekrar yapabileceğiniz bir çalışma düzeni size uygun mu?</label>
+          <select id="routine" formControlName="routine" aria-describedby="routine-error" [attr.aria-invalid]="form.controls.routine.touched && form.controls.routine.invalid">
+            <option value="">Seçiniz</option><option value="yes">Evet</option><option value="mostly">Büyük ölçüde uygun</option><option value="unsure">Emin değilim</option>
+          </select>
+          <span class="error" id="routine-error">@if (form.controls.routine.touched && form.controls.routine.invalid) { Bir seçenek seçin. }</span>
+        </fieldset>
+        <fieldset>
+          <legend>Eğitim modelini anlama</legend>
+          <label class="check"><input type="checkbox" formControlName="weekly"> <span>Üyelik Sisteminde her hafta standart canlı ders olmadığını anlıyorum.</span></label>
+          <label class="check"><input type="checkbox" formControlName="checkpoints"> <span>Canlı Okuma Kontrollerinin programın belirli aşamalarında yapıldığını anlıyorum.</span></label>
+          <label class="check"><input type="checkbox" formControlName="period"> <span>İlk eğitim döneminin 6 ay olduğunu anlıyorum.</span></label>
+          @if (checked && (form.controls.weekly.invalid || form.controls.checkpoints.invalid || form.controls.period.invalid)) { <p class="error">Lütfen üç eğitim modeli açıklamasını okuyup anladığınızı belirtin.</p> }
+        </fieldset>
+        <label for="goal">Kur’an öğreniminde en çok neyi geliştirmek istiyorsunuz? (İsteğe bağlı)</label>
+        <textarea id="goal" formControlName="goal" rows="3" maxlength="500" aria-describedby="goal-help"></textarea>
+        <small id="goal-help">En fazla 500 karakter.</small>
+        <p>Bu form eğitim modelini değerlendirmeniz içindir; kayıt veya ödeme başlatmaz. Bilgi almak için iletişim sayfasını kullanabilirsiniz.</p>
+        <button type="submit">Yanıtlarımı Kontrol Et</button>
+        <div role="status" aria-live="polite">
+          @if (checked) {
+            @if (form.invalid) { <p class="notice">Lütfen işaretlenen eksik veya geçersiz alanları kontrol edin.</p> }
+            @else { <p class="notice">Gerekli alanlar tamamlandı. Bu kontrol bir kabul veya uygunluk kararı değildir. Yanıtlarınız gönderilmedi. Bilgi almak için <a routerLink="/iletisim">bizimle iletişime geçebilirsiniz</a>.</p> }
+          }
+        </div>
+      </form>
+      <aside class="notice">
+        <p>Düzenli haftalık öğretmen eşliği sizin için daha uygunsa Canlı Grup Derslerini inceleyebilirsiniz.</p>
+        <a routerLink="/canli-grup-dersleri">Canlı Grup Derslerini İncele</a>
+      </aside>
+      <section aria-labelledby="next-title">
+        <h2 id="next-title">Platform açıldığında planlanan adımlar</h2>
+        <ol>
+          <li>Kısa uygunluk formu</li><li>Üyelik ve ödeme bilgilerinin paylaşılması</li><li>Kayıt / ödeme</li><li>Öğrenci hesabının açılması</li><li>IKRA’ya Başlangıç</li><li>İlk derslere başlama</li>
+        </ol>
+        <p>Bu adımlar henüz aktif değildir; mevcut form öğrenci hesabı oluşturmaz.</p>
+      </section>
+    </div>
+  </section>
+</main>

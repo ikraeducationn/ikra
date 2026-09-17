@@ -10,6 +10,7 @@
 <section class="band band--soft">
   <div class="faq-wrap">
     @for (f of faqs; track f.q; let i = $index) {
+      @if (f.category) { <h2 class="faq-category">{{ f.category }}</h2> }
       <div class="faq-item">
         <button type="button"
                 class="faq-q"
@@ -27,6 +28,11 @@
               </ul>
             } @else {
               <p>{{ f.a }}</p>
+            }
+            @if (f.links) {
+              <div class="faq-links">
+                @for (link of f.links; track link.path) { <a [routerLink]="link.path">{{ link.label }}</a> }
+              </div>
             }
           </div>
         }

@@ -1,28 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
-type Faq = { q: string; a: string | string[] };
+type Faq = { q: string; a: string | string[]; category?: string; links?: { label: string; path: string }[] };
 
 @Component({
   selector: 'app-sss',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './sss.component.html',
   styleUrls: ['./sss.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SssComponent {
   faqs: Faq[] = [
-    { q: 'Dersler nasıl yapılıyor?', a: 'Tüm dersler çevrim içi olarak Zoom üzerinden yapılır. Katılım için internet bağlantısı ve akıllı cihaz yeterlidir.' },
-    { q: 'Haftada kaç ders almalıyım?', a: 'Öğrenciler haftalık ders sayısını kendileri belirler. Tavsiyemiz: haftada 2 veya 3 ders ile düzenli ve etkili bir ilerleme.' },
-    { q: 'Ders süreleri ne kadar?', a: ['30 dakika: Sadece Kur’an-ı Kerim dersi için uygundur.', '50 dakika: Tecvidli Kur’an Eğitimi + Temel Dini Bilgiler içerir.'] },
-    { q: 'Kur\'an okumaya başlamam ne kadar sürer?', a: 'Öğrencinin yaşı, önceki düzeyi ve haftalık ders sayısına göre değişir. Haftada 2–3 ders alan öğrenci kısa sürede elifba’yı tamamlayıp kelime birleştirmeye geçebilir. Süreç bire bir ilgi ve düzenli takiple ilerler.' },
-    { q: 'Temel Dini Bilgiler dersinde neler öğretiliyor?', a: 'İtikad, İbadet, Siyer, Ahlak, Değerler Eğitimi ve İlmihal Bilgileri dönüşümlü işlenir. Her derste bir konuya odaklanılır.' },
-    { q: 'Grup derslerinde kaç kişi oluyor?', a: 'En fazla 5 kişilik küçük gruplar. Bu sayede bireysel ilgi korunur.' },
-    { q: 'Grup derslerinde indirim var mı?', a: 'Evet. Kardeş ve aile üyeleri için özel indirimler uygulanır.' },
-    { q: 'Ödeme nasıl yapılır?', a: 'Ödemeler aylık ve ders başlangıcından önce alınır. Avrupa ülkeleri arasında IBAN ödemeleri ücretsizdir. IBAN veya PayPal ile güvenli ödeme yapabilirsiniz.' },
-    { q: 'Ders saatleri sabit mi?', a: 'Hayır. Ders saatleri öğrencinin müsaitliğine göre esnek planlanır.' },
-    { q: 'Başka sorularınız mı var?', a: 'Bizimle iletişime geçin, size en kısa sürede yardımcı olalım.' }
+    { category: 'Genel', q: 'IKRA EDUcation kimler için eğitim sunuyor?', a: 'Yetişkinler, gençler ve çocuklar için online Kur’an eğitimi sunar. Gençler ve çocuklarda temel dini bilgiler ve değer eğitimi de yer alır.' },
+    { q: 'Dersler online mı?', a: 'Evet, eğitimler online yürütülür.' },
+    { q: 'Ders dili nedir?', a: 'Derslerin ana dili Türkçedir. Gerektiğinde bazı kavramların anlaşılmasını desteklemek için Almanca açıklamalar yapılabilir.' },
+    { category: 'Canlı Grup Dersleri', q: 'Canlı Grup Dersleri nasıl ilerler?', a: 'Sabit gün ve saatte, öğretmen eşliğinde ve grup temposuyla ilerlenir. Öğrencinin okuması canlı dinlenir ve okuma hataları düzeltilir.' },
+    { q: 'Canlı Grup Dersleri kimler için uygundur?', a: 'Düzenli haftalık öğretmen takibi ve sabit ders düzeniyle daha iyi ilerleyen öğrenciler için uygundur.' },
+    { q: 'Canlı Grup Dersleri yetişkin, genç ve çocuklar için var mı?', a: 'Evet. İçerik hedef kitleye ve seviyeye göre farklılaşır.' },
+    { category: 'IKRA Üyelik Sistemi', q: 'Üyelik Sistemi hazır mı?', a: 'IKRA Üyelik Sistemi hazırlanıyor. Detaylar hazır olduğunda paylaşılacak.', links: [{ label: 'IKRA Üyelik Sistemi', path: '/uyelik-sistemi' }] },
+    { category: 'Çocuklar ve gençler', q: 'Çocuk eğitiminde neler var?', a: 'Kur’an eğitimi, temel dini bilgiler, adab ve değerler yaşa ve seviyeye uygun şekilde ele alınır.' },
+    { q: 'Genç eğitiminde neler var?', a: 'Kur’an eğitimi, temel dini bilgiler ve dini/değer odaklı rehberlik yer alır.' },
+    { q: 'Türkçesi zayıf olan çocuk veya gençler derse katılabilir mi?', a: 'Anlatım yaş ve Türkçe seviyesine uygun, sade tutulur; gerektiğinde Almanca açıklamalarla desteklenebilir. Derslerin ana dili Türkçedir.' },
+    { category: 'Kayıt', q: 'Nasıl bilgi alabilirim?', a: 'İlgili eğitim sayfasını inceleyebilir veya bizimle iletişime geçebilirsiniz. Canlı Grup Dersleri için grup başvuru formunu inceleyebilirsiniz. Form gönderimi henüz aktif değildir; sorularınız için iletişim kanallarımızı kullanabilirsiniz.', links: [{ label: 'Eğitimleri İncele', path: '/egitimler' }, { label: 'Canlı Grup Başvuru Formu', path: '/canli-grup-basvuru' }, { label: 'İletişim', path: '/iletisim' }] }
   ];
 
   /** new control-flow helper */

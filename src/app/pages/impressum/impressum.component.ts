@@ -12,9 +12,8 @@ export class ImpressumComponent {
   // Pflichtangaben (§ 5 ECG)
   companyName = 'Rabia Özdemir';
   legalForm = 'Einzelunternehmerin';
-  // TODO: Straße & Hausnummer ergänzen für ladungsfähige Anschrift
-  address = '2700 Wiener Neustadt, Österreich';
-  email = 'rabiaoezdemir77@gmail.com';
+  address = 'Kollonitschgasse 14, 2700 Wiener Neustadt, Österreich';
+  email = 'ikraeducation@outlook.com';
   phone = '+436704053959';
 
   // Offenlegung (§ 25 MedienG – kleine Website)

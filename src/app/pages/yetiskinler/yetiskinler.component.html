@@ -1,0 +1,60 @@
+<main>
+  <header class="page-intro">
+    <div class="page-inner">
+    <p class="eyebrow">IKRA EDUcation</p>
+    <h1>Yetişkinler için Kur’an eğitimi</h1>
+    <p class="description">IKRA EDUcation’da kadın ve erkek yetişkinler için canlı grup dersleri sunulur. IKRA Üyelik Sistemi hazırlanıyor.</p>
+    </div>
+  </header>
+
+  <section class="adult-section" aria-label="İki eğitim yolu">
+    <div class="page-inner">
+      <p class="intro-copy">Düzenli bir ders saati ve öğretmen eşliğiyle ilerlemek isteyenler canlı grup derslerini inceleyebilir.</p>
+      <div class="model-grid">
+        <article class="model-card">
+          <h2>Canlı Grup Dersleri</h2>
+          <p>Her hafta sabit gün ve saatte, öğretmen eşliğinde düzenli ilerlemek isteyenler için.</p>
+          <ul>
+            <li>Sabit ders günü ve saati</li>
+            <li>Düzenli öğretmen takibi</li>
+            <li>Canlı okuma ve doğrudan düzeltme</li>
+            <li>Grup temposuyla ilerleme</li>
+          </ul>
+          <a class="model-link" routerLink="/canli-grup-dersleri">Canlı Grup Derslerini İncele</a>
+        </article>
+        <article class="model-card">
+          <h2>IKRA Üyelik Sistemi</h2>
+          <p>IKRA Üyelik Sistemi hazırlanıyor.</p>
+          <a class="model-link" routerLink="/uyelik-sistemi">Üyelik Sistemini İncele</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="adult-section comparison" aria-labelledby="comparison-title">
+    <div class="page-inner">
+      <h2 id="comparison-title">Hangisi bana uygun?</h2>
+      <div class="model-grid">
+        <div class="comparison-option">
+          <h3>Canlı Grup daha uygun olabilir:</h3>
+          <ul>
+            <li>Sabit program sizi motive ediyorsa</li>
+            <li>Her hafta öğretmenle canlı çalışmak istiyorsanız</li>
+            <li>Düzenli grup temposunu tercih ediyorsanız</li>
+          </ul>
+        </div>
+        <div class="comparison-option">
+          <h3>IKRA Üyelik Sistemi</h3><p>Hazırlanıyor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="adult-section shared-approach" aria-label="Ortak IKRA yaklaşımı">
+    <div class="page-inner">
+      <p>Hangi yolu seçerseniz seçin, IKRA’da doğru okuma ve mahreç temel önceliktir.</p>
+      <a class="model-link" routerLink="/ikra-yontemi">IKRA Yöntemini İncele</a>
+    </div>
+  </section>
+  <app-reviews [reviewIds]="['leman']" heading="Yetişkin öğrencilerden görüşler"></app-reviews>
+</main>

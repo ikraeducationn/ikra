@@ -1,0 +1,45 @@
+<main>
+<header class="page-intro"><div class="page-inner">
+<p class="eyebrow">Canlı Grup Dersleri</p><h1>Canlı Grup Dersleri Başvuru Formu</h1>
+<p class="description">Size uygun grup seçeneğini belirleyebilmemiz için birkaç kısa bilgi paylaşabilirsiniz.</p>
+<p>Bu form, eğitim ihtiyacınızı anlamaya yöneliktir; bir sınav veya kabul/red değerlendirmesi değildir.</p>
+</div></header>
+<section class="form-section"><div class="form-inner">
+<p class="notice" id="availability">Form gönderimi henüz aktif değil. Yanıtlarınız gönderilmez veya kaydedilmez. Şimdilik bilgilerinizi kontrol edebilir, grup seçenekleri için <a routerLink="/iletisim">bizimle iletişime geçebilirsiniz</a>.</p>
+<form [formGroup]="form" (ngSubmit)="review()" aria-describedby="availability" novalidate>
+<p>Kısa not isteğe bağlıdır; diğer görünen alanlar gereklidir.</p>
+<fieldset><legend>İletişim</legend>
+<small>Genç veya çocuk için bilgi alıyorsanız veli iletişim bilgilerini kullanabilirsiniz.</small>
+<label for="name">Ad Soyad</label><input id="name" formControlName="name" autocomplete="name" maxlength="100" aria-describedby="name-error">
+<span class="error" id="name-error">@if (form.controls.name.touched && form.controls.name.invalid) { Adınızı ve soyadınızı yazın. }</span>
+<label for="contact">E-posta veya WhatsApp iletişim bilgisi</label><input id="contact" formControlName="contact" maxlength="254" aria-describedby="contact-error">
+<span class="error" id="contact-error">@if (form.controls.contact.touched && form.controls.contact.invalid) { Geçerli bir e-posta adresi veya ülke koduyla telefon numarası yazın. }</span>
+</fieldset>
+<fieldset><legend>Eğitim ihtiyacı</legend>
+<label for="audience">Kim için?</label><select id="audience" formControlName="audience" aria-describedby="audience-error">
+<option value="">Seçiniz</option><option value="adult">Yetişkin</option><option value="youth">Genç</option><option value="child">Çocuk</option></select>
+<span class="error" id="audience-error">@if (form.controls.audience.touched && form.controls.audience.invalid) { Kim için bilgi aldığınızı seçin. }</span>
+@if (form.controls.audience.value === 'adult') {
+<label for="gender">Yetişkin grubu</label><select id="gender" formControlName="gender" aria-describedby="gender-error"><option value="">Seçiniz</option><option value="woman">Kadın</option><option value="man">Erkek</option></select>
+<span class="error" id="gender-error">@if (form.controls.gender.touched && form.controls.gender.invalid) { Yetişkin grubu seçimini yapın. }</span>
+}
+@if (form.controls.audience.value === 'youth' || form.controls.audience.value === 'child') {
+<label for="age">Yaş</label><input id="age" formControlName="age" inputmode="numeric" maxlength="3" aria-describedby="age-error">
+<span class="error" id="age-error">@if (form.controls.age.touched && form.controls.age.invalid) { Yaşı pozitif bir tam sayı olarak yazın. }</span>
+}
+<label for="level">Kur’an seviyesi</label><select id="level" formControlName="level" aria-describedby="level-error">
+<option value="">Seçiniz</option><option value="beginner">Sıfırdan başlıyor</option><option value="letters">Harfleri biliyor ancak okumada zorlanıyor</option><option value="reading">Kur’an okuyabiliyor, okumasını geliştirmek istiyor</option></select>
+<span class="error" id="level-error">@if (form.controls.level.touched && form.controls.level.invalid) { Mevcut seviyeyi seçin. }</span>
+<label for="schedule">Hangi gün veya saat aralıkları sizin için daha uygundur?</label><textarea id="schedule" formControlName="availability" rows="2" maxlength="300" aria-describedby="schedule-help schedule-error"></textarea>
+<small id="schedule-help">Tercihiniz, kesin ders günü veya saat garantisi değildir.</small>
+<span class="error" id="schedule-error">@if (form.controls.availability.touched && form.controls.availability.invalid) { Uygun gün veya saat aralıklarını yazın. }</span>
+</fieldset>
+<label for="note">Eklemek istediğiniz kısa bir not var mı? (İsteğe bağlı)</label><textarea id="note" formControlName="note" rows="3" maxlength="500"></textarea>
+<p>Bilgilerinizi bizimle paylaştığınızda uygun seviye ve grup seçenekleri hakkında sizinle iletişime geçilir. Grup ve gün/saat seçenekleri ayrıca netleştirilir.</p>
+<button type="submit">Yanıtlarımı Kontrol Et</button>
+<div role="status" aria-live="polite">@if (checked) {
+@if (form.invalid) { <p class="notice">Lütfen eksik veya geçersiz alanları kontrol edin.</p> }
+@else { <p class="notice">Gerekli alanlar tamamlandı. Yanıtlarınız gönderilmedi; kayıt veya yer ayırma işlemi yapılmadı. Grup seçenekleri için <a routerLink="/iletisim">bizimle iletişime geçebilirsiniz</a>.</p> }
+}</div></form>
+<section class="notice" aria-labelledby="steps"><h2 id="steps">Kayıt akışı</h2><ol><li>Kısa başvuru formu</li><li>Seviye ve uygun grup değerlendirmesi</li><li>Uygun gün/saat bilgisinin paylaşılması</li><li>Kayıt onayı</li></ol></section>
+</div></section></main>

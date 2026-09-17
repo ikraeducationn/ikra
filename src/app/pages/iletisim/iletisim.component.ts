@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 type Contact = {
   label: string;
@@ -11,12 +13,24 @@ type Contact = {
 
 @Component({
     selector: 'app-iletisim',
-    imports: [CommonModule],
+    imports: [CommonModule, ReactiveFormsModule, RouterLink],
     standalone: true,
     templateUrl: './iletisim.component.html',
-    styleUrls: ['./iletisim.component.css']
+    styleUrls: ['../page-intro.css', '../uyelik-basvuru/uyelik-basvuru.component.css', './iletisim.component.css']
 })
 export class IletisimComponent {
+  private readonly fb = inject(FormBuilder);
+  checked = false;
+  readonly form = this.fb.nonNullable.group({
+    name: ['', [Validators.required, Validators.pattern(/\S.*\S/), Validators.maxLength(100)]],
+    contact: ['', [Validators.required, Validators.pattern(/^(?:[^\s@]+@[^\s@]+\.[^\s@]+|(?=(?:\D*\d){7,15}\D*$)\+?[\d ()-]{7,25})$/)]],
+    subject: ['', [Validators.required, Validators.pattern(/\S/), Validators.maxLength(150)]],
+    message: ['', [Validators.required, Validators.pattern(/\S/), Validators.maxLength(1500)]]
+  });
+  review(): void {
+    this.form.markAllAsTouched();
+    this.checked = true;
+  }
   // Updated values
   tel = '+436704053959';
   whatsapp = 'https://wa.me/436704053959';

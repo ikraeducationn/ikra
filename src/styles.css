@@ -1,4 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --ikra-primary: #0B6675;
+  --ikra-primary-dark: #084D58;
+  --ikra-primary-light: #EAF4F5;
+  --ikra-border: #C8DFE2;
+  --ikra-text: #17363C;
+  --ikra-white: #FFFFFF;
+  --ikra-muted: #4B6268;
+  --ikra-input-border: #66858B;
+  --ikra-error: #A32929;
+  --ikra-card-radius: 16px;
+  --ikra-card-shadow: 0 8px 18px rgba(23, 54, 60, .05);
+  --ikra-button-radius: 999px;
+  --ikra-button-padding: 12px 24px;
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--ikra-text);
+  background: var(--ikra-white);
+}
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--ikra-primary);
+  outline-offset: 4px;
+}
+input, select, textarea { accent-color: var(--ikra-primary); }

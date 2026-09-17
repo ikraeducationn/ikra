@@ -7,7 +7,7 @@
 .hero-image { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 .hero-heading {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin: 0;
+  color: var(--ikra-white); font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin: 0;
   text-shadow: 0 2px 6px rgba(0,0,0,.5);
 }
 
@@ -19,7 +19,7 @@
 
 /* ---- accordion item ---- */
 .faq-item{
-  background:#fff; border:1px solid #e9eef1; border-radius: var(--r,12px);
+  background:var(--ikra-white); border:1px solid var(--ikra-border); border-radius: var(--r,12px);
   box-shadow:0 1px 3px rgba(0,0,0,.04);
   overflow:hidden;
 }
@@ -30,12 +30,16 @@
   background:transparent; border:0; margin:0; padding:1rem 1.2rem;
   font-weight:600; text-align:left; cursor:pointer;
 }
-.faq-q:focus-visible{ outline:2px solid #b9d7ff; outline-offset:-2px; }
+.faq-q:focus-visible{ outline:2px solid var(--ikra-primary); outline-offset:-2px; }
 
 .chev{ transition: transform .2s ease; }
 .chev.open{ transform: rotate(180deg); }
 
 /* answer */
-.faq-a{ padding:0 1.2rem 1rem; color:#555; line-height:1.55; }
+.faq-a{ padding:0 1.2rem 1rem; color:var(--ikra-muted); line-height:1.55; }
 .faq-a ul{ margin:.2rem 0 0; padding-left:1.2rem; }
 .faq-a li{ margin:.25rem 0; }
+.faq-category { color:var(--ikra-primary); font-size:1.4rem; margin:1rem 0 0; }
+.faq-links { display:flex; flex-wrap:wrap; gap:12px 20px; }
+.faq-links a { color:var(--ikra-primary); text-underline-offset:3px; line-height:1.6; }
+.faq-links a:focus-visible { outline:2px solid var(--ikra-primary); outline-offset:3px; }

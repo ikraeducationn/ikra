@@ -1,0 +1,19 @@
+<section class="reviews-section" [attr.aria-label]="heading">
+  <div class="reviews-inner">
+    <h2>{{ heading }}</h2>
+    <div class="reviews-grid" [class.single-review]="reviews.length === 1">
+      <article class="review-card" *ngFor="let review of reviews">
+        <div class="review-person">
+          <span class="review-initials" aria-hidden="true">{{ review.initials }}</span>
+          <div>
+            <h3>{{ review.name }}</h3>
+            <p class="review-details">{{ review.details }}</p>
+          </div>
+        </div>
+        <blockquote>“{{ review.quote }}”</blockquote>
+        <p class="review-source">{{ review.source }}</p>
+      </article>
+    </div>
+    <a *ngIf="showMore" class="reviews-link" routerLink="/deneyimler">Tüm görüşleri incele</a>
+  </div>
+</section>

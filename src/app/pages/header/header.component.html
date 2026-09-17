@@ -1,26 +1,35 @@
-<header class="app-header">
-    <!-- Outer container, full width -->
-    <div class="header-outer">
-      <!-- Inner container, max-width, spaced between logo & nav -->
-      <div class="header-inner">
-        <!-- Logo / Title -->
-        <div class="header-title-container">
-          <h1 class="header-title">
-            <a [routerLink]="['/anasayfa']" rel="home">ikra education online</a>
-          </h1>
-        </div>
-  
-        <!-- Navigation -->
-        <nav class="header-nav">
-          <ul>
-            <li><a [routerLink]="['/hizmetlerimiz']">Hizmetlerimiz</a></li>
-            <li><a [routerLink]="['/fiyatlar']">Fiyatlar</a></li>
-            <li><a [routerLink]="['/deneyimler']">Deneyimler</a></li>
-            <li><a [routerLink]="['/sss']">SSS</a></li>
-            <li><a [routerLink]="['/iletisim']">İletişim</a></li>
+<header class="app-header" (keydown.escape)="closeMenus(); menuToggle.focus()">
+  <div class="header-inner">
+    <a class="header-title" routerLink="/anasayfa" rel="home" (click)="closeMenus()"><img class="header-logo" src="assets/ikra-logo.png" alt="IKRA EDUcation" width="1774" height="887" /></a>
+    <button #menuToggle class="menu-toggle" type="button" aria-controls="main-navigation"
+      [attr.aria-expanded]="menuOpen" (click)="menuOpen = !menuOpen; educationOpen = false">
+      {{ menuOpen ? 'Menüyü kapat' : 'Menü' }}
+    </button>
+    <nav id="main-navigation" class="header-nav" aria-label="Ana navigasyon" [class.is-open]="menuOpen">
+      <ul class="nav-list">
+        <li><a routerLink="/anasayfa" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Ana Sayfa</a></li>
+        <li class="education" routerLinkActive="active-group"
+          (keydown.escape)="$event.stopPropagation(); educationOpen = false; educationToggle.focus()">
+          <div class="education-heading">
+            <a routerLink="/egitimler" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Eğitimler</a>
+            <button #educationToggle class="dropdown-toggle" type="button" aria-label="Eğitimler alt menüsü"
+              aria-controls="education-navigation" [attr.aria-expanded]="educationOpen"
+              (click)="educationOpen = !educationOpen"><span aria-hidden="true">⌄</span></button>
+          </div>
+          <ul id="education-navigation" class="dropdown" [hidden]="!educationOpen">
+            <li><a routerLink="/yetiskinler" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Yetişkinler</a></li>
+            <li><a routerLink="/gencler" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Gençler</a></li>
+            <li><a routerLink="/cocuklar" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Çocuklar</a></li>
+            <li><a routerLink="/canli-grup-dersleri" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Canlı Grup Dersleri</a></li>
           </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  
+        </li>
+        <li><a routerLink="/ikra-yontemi" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">IKRA Yöntemi</a></li>
+        <li><a routerLink="/uyelik-sistemi" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Üyelik Sistemi</a></li>
+        <li><a routerLink="/deneyimler" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Deneyimler</a></li>
+        <li><a routerLink="/sss" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">SSS</a></li>
+        <li><a routerLink="/iletisim" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">İletişim</a></li>
+        <li><a class="student-link" routerLink="/ogrenci-girisi" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">Öğrenci Girişi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

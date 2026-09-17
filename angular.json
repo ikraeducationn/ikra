@@ -55,6 +55,9 @@
               ],
               "outputHashing": "all"
             },
+            "github-pages": {
+              "baseHref": "/ikra/"
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -87,6 +90,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"

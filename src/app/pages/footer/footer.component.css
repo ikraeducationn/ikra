@@ -1,12 +1,12 @@
-:root {
-  --ink:#292929;
-  --muted:#6b7280;
-  --line:#eee;
+:host {
+  --ink:var(--ikra-text);
+  --muted:var(--ikra-muted);
+  --line:var(--ikra-border);
 }
 
 /* Whole footer */
 .app-footer{
-  background:#fff;
+  background:var(--ikra-white);
   border-top:1px solid var(--line);
   padding:16px 0;
   color:var(--ink);
@@ -32,7 +32,7 @@
   font-weight:700;
   letter-spacing:-0.4px;
   text-transform:uppercase;
-  color:var(--ink);
+  color:var(--ikra-primary);
   text-decoration:none;
   line-height:1;
 }
@@ -51,7 +51,7 @@
   font-size:16px;
   line-height:1.6;
 }
-.footer-nav a:hover{ color:#555; }
+.footer-nav a:hover{ color:var(--ikra-primary-dark); }
 
 /* Social */
 .footer-social{ display:flex; gap:14px; }
@@ -60,7 +60,7 @@
   font-size:20px;
   text-decoration:none;
 }
-.footer-social a:hover{ color:#555; }
+.footer-social a:hover{ color:var(--ikra-primary-dark); }
 
 /* Small screens: stack brand, nav, social nicely */
 @media (max-width: 720px){
@@ -70,3 +70,6 @@
     gap:12px;
   }
 }
+
+.footer-title { display: inline-block; line-height: 0; }
+.footer-logo { display: block; width: 144px; height: auto; }

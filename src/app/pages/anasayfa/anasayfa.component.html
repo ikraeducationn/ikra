@@ -1,63 +1,27 @@
 <!-- anasayfa.component.html -->
 <main style="margin-top: 0; margin-bottom: 0">
-  <!-- HERO (fixed, two-column grid, no wrapping) -->
+  <!-- IKRA v2 Hero -->
   <section class="hero alignfull">
     <div class="wp-block-columns hero-grid">
       <div class="wp-block-column">
         <div class="hero-copy">
-          <span class="eyebrow">Bağımsız • Sertİfİkalı • Güvenlİ</span>
-          <h1>
-            Kur’an’ı <span class="underline">canlı</span> öğrenin — birebir veya
-            küçük gruplar halinde, tamamen sizin hızınıza göre.
-          </h1>
-
-          <ul class="hero-bullets">
-            <li>
-              🎓 Uzman eğitmenlerle birebir veya küçük gruplar halinde öğrenim — özgür ve tarafsız yaklaşım
-            </li>
-            <li>🕒 Size uygun saatlerde: akşamları veya hafta sonları</li>
-            <li>📈 Kişiselleştirilmiş eğitim planı + gelişiminizi adım adım takip eden sistem</li>
-          </ul>
-
+          <span class="eyebrow">IKRA EDUcation</span>
+          <h1>Kur’an öğreniminde <span class="underline">size uygun yolu</span> seçin.</h1>
+          <p class="hero-description">
+            IKRA EDUcation; yetişkinler, gençler ve çocuklar için online Kur’an eğitimi sunar.
+            Yetişkinler için öğretmen eşliğinde Canlı Grup Dersleri sunulur. IKRA Üyelik Sistemi hazırlanıyor.
+            Gençler ve çocuklar için yaşlarına ve ihtiyaçlarına uygun canlı eğitimler sunulur.
+            Eğitimimizin önceliği doğru okuma ve mahreçtir.
+          </p>
           <div class="cta-row">
-            <a
-              class="btn btn-primary"
-              href="https://wa.me/436704053959"
-              target="_blank"
-              rel="noopener"
-            >
-              <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp’tan Hemen Bilgi Al
-            </a>
-            <a class="btn btn-outline" [routerLink]="['/hizmetlerimiz']">
-              Neler Sunuyoruz?
-            </a>
-          </div>
-
-          <div class="trust-strip">
-            <span class="trust-pill"
-              ><i class="fas fa-lock" aria-hidden="true"></i> Güvenli
-              ödeme</span
-            >
-            <span class="trust-pill"
-              ><i class="fas fa-user-shield" aria-hidden="true"></i> Kişisel verileriniz kanuna uygun olarak korunur.</span
-            >
-            <span class="trust-pill"
-              ><i class="fas fa-certificate" aria-hidden="true"></i> Sertifikalı
-              eğitim</span
-            >
-            <span class="trust-pill"
-              ><i class="fas fa-video" aria-hidden="true"></i> Canlı ders</span
-            >
+            <a class="btn btn-primary" routerLink="/canli-grup-dersleri">Canlı Dersleri İncele</a>
+            <a class="btn btn-outline" routerLink="/uyelik-sistemi">Üyelik Sistemini İncele</a>
           </div>
         </div>
       </div>
-
       <div class="wp-block-column hero-visual">
-        <img src="assets/tesbih_hali_ipad.jpg" alt="Online Kur’an dersi" />
-        <div class="hero-badge">
-          <strong>Katılım Belgesi</strong>
-          <small>Ders bitiminde dijital teslim</small>
-        </div>
+        <img src="assets/ikra-avrupa-ogrenciler.png" alt="Avrupa haritası çevresinde yetişkin, genç ve çocukların online eğitimini anlatan illüstrasyon" width="1672" height="941" fetchpriority="high" />
+        <a class="image-detail-link" href="assets/ikra-avrupa-ogrenciler.png" target="_blank" rel="noopener" aria-label="Avrupa’daki öğrenciler görselini büyüt (yeni sekme)">Görseli büyüt</a>
       </div>
     </div>
   </section>
@@ -66,93 +30,124 @@
   <section class="section section--muted">
     <div class="container about-grid">
       <div class="about-copy">
-        <h2 class="section-title">Biz kimiz? Neye Inaniyoruz?</h2>
+        <h2 class="section-title">Biz kimiz?</h2>
         <p class="section-lead">
-Ikra olarak, bağımsız ve nitelikli Kur’an eğitimi sunuyoruz. Hiçbir grup, yapı veya ideolojiyle bağlantımız yok — sadece bilgiye, bireysel gelişime ve manevi derinliğe odaklanıyoruz.
-Eğitim kadromuz, Türk ve Avrupa eğitim sistemlerinde yetişmiş, alanında deneyimli eğitmenlerden oluşuyor. Kur’an-ı Kerim’in yanı sıra temel dini bilgiler, ilmihal ve değerler eğitimiyle kapsamlı bir öğrenim süreci sunuyoruz.
-İster birebir ister küçük gruplarla, tamamen size özel bir tempoda ilerleyebileceğiniz esnek programlarla, eğitimi her yerden erişilebilir hale getiriyoruz. Amacımız; bilgiyle güçlenen, bilinçli ve içsel olarak zenginleşen bireyler yetiştirmek.
+          IKRA EDUcation, Avusturya merkezli online bir eğitim markasıdır.
+          Türkçe konuşan yetişkinlere, gençlere ve çocuklara Kur’an eğitimi ve temel dini bilgiler sunar.
         </p>
 
         <ul class="about-points">
           <li>
-            <i class="fas fa-user-check" aria-hidden="true"></i> Belgeli ve
-            deneyimli hocalar
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span>Kadın ve erkek yetişkinler için canlı grup dersleri. IKRA Üyelik Sistemi hazırlanıyor.</span>
           </li>
           <li>
-            <i class="fas fa-user-shield" aria-hidden="true"></i> Güvenli ve gizliliğe saygılı eğitim
+            <i class="fas fa-compass" aria-hidden="true"></i>
+            <span>Gençler için Kur’an eğitimi, temel dini bilgiler ve Avrupa’daki günlük hayatla ilişkilendirilen dini ve değer odaklı rehberlik.</span>
           </li>
           <li>
-            <i class="fas fa-clock" aria-hidden="true"></i> Esnek saatler ve
-            birebir/mini grup
+            <i class="fas fa-book-open" aria-hidden="true"></i>
+            <span>Çocuklar için Kur’an eğitimi, temel dini bilgiler, adab ve değerler.</span>
+          </li>
+          <li>
+            <i class="fas fa-seedling" aria-hidden="true"></i>
+            <span>Ortak önceliğimiz doğru okuma, mahreç ve aşamalı ilerlemeyle sağlam bir temel kurmaktır.</span>
           </li>
         </ul>
       </div>
 
-      <div class="about-visual">
-        <figure class="about-figure">
-          <img src="assets/basörtülü_mit_laptop.jpg" alt="Hakkımızda" />
-        </figure>
+    </div>
+  </section>
+
+  <!-- IKRA v2 education paths -->
+  <section class="section education-paths" aria-labelledby="education-paths-title">
+    <div class="container">
+      <h2 class="section-title" id="education-paths-title">Size uygun eğitim modelini seçin</h2>
+      <div class="cards model-cards">
+        <article class="card">
+          <div class="card-icon"><i class="fas fa-video" aria-hidden="true"></i></div>
+          <h3 class="card-title">Canlı Grup Dersleri</h3>
+          <p class="card-text">Düzenli öğretmen eşliği, sabit ders programı ve grup temposuyla ilerlemek isteyenler için.</p>
+          <a class="path-link" routerLink="/canli-grup-dersleri">Canlı Grup Derslerini İncele</a>
+        </article>
+        <article class="card">
+          <div class="card-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
+          <h3 class="card-title">IKRA Üyelik Sistemi</h3>
+          <p class="card-text">IKRA Üyelik Sistemi hazırlanıyor.</p>
+          <a class="path-link" routerLink="/uyelik-sistemi">Üyelik Sistemini İncele</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Offerings Section (reworked) -->
-  <section class="section">
+  <section class="section education-paths section--muted" aria-labelledby="audience-title">
     <div class="container">
-      <h2 class="section-title">Her Yaşa Uygun Kur’an Eğitimi</h2>
-      <p class="section-lead">
-        5 yaşından itibaren birebir, grup ve yoğunlaştırılmış programlarla seviyenize özel öğrenim.
-      </p>
-
+      <h2 class="section-title" id="audience-title">Kimler için?</h2>
       <div class="cards">
         <article class="card">
-          <div class="card-icon">
-            <i class="fas fa-user-graduate" aria-hidden="true"></i>
-          </div>
-          <h3 class="card-title">Kişiye Özel Kur’an Programı</h3>
-          <p class="card-text">
-Bireysel hedeflere uygun içerik, haftalık değerlendirme ve düzenli eğitmen geri bildirimiyle yapılandırılmış öğrenim süreci.
-          </p>
+          <div class="card-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+          <h3 class="card-title">Yetişkinler</h3>
+          <p class="card-text">Kur’an öğrenmeye sıfırdan başlamak veya mevcut okumasını geliştirmek isteyen kadın ve erkek yetişkinler.</p>
+          <a class="path-link" routerLink="/yetiskinler">Yetişkin Eğitimlerini İncele</a>
         </article>
-
         <article class="card">
-          <div class="card-icon">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-          </div>
-          <h3 class="card-title">Esnek Öğrenme İmkanı</h3>
-          <p class="card-text">
-İster akşam ister hafta sonu — evden canlı derslerle öğrenmek artık çok daha kolay.
-          </p>
+          <div class="card-icon"><i class="fas fa-compass" aria-hidden="true"></i></div>
+          <h3 class="card-title">Gençler</h3>
+          <p class="card-text">Kur’an eğitiminin yanında temel dini bilgiler ve değer odaklı rehberlikle ilerleyen gençler.</p>
+          <a class="path-link" routerLink="/gencler">Gençler İçin Eğitimleri İncele</a>
         </article>
-
         <article class="card">
-          <div class="card-icon">
-            <i class="fas fa-book-open" aria-hidden="true"></i>
-          </div>
-          <h3 class="card-title">Zengin İçerik, Etkili Öğrenme</h3>
-          <p class="card-text">
-Tecvid’den ezbere, anlamdan doğru telaffuza kadar; interaktif materyallerle Kur’an’ı derinlemesine keşfedin.
-          </p>
+          <div class="card-icon"><i class="fas fa-seedling" aria-hidden="true"></i></div>
+          <h3 class="card-title">Çocuklar</h3>
+          <p class="card-text">Kur’an, temel dini bilgiler, adab ve değerler eğitimiyle düzenli öğretmen eşliğinde ilerleyen çocuklar.</p>
+          <a class="path-link" routerLink="/cocuklar">Çocuk Eğitimlerini İncele</a>
         </article>
+      </div>
+      <figure class="europe-figure">
+        <figcaption>
+          <h3>Avrupa’nın farklı ülkelerinden öğrencilerle online eğitim</h3>
+          <p>Türkçe ana ders diliyle; gerektiğinde Almanca açıklama desteğiyle.</p>
+        </figcaption>
+        <img src="assets/ikra-avrupa-egitim.png" alt="Avrupa şehirleri fonunda bilgisayar ve tabletle online Kur’an öğrenimini anlatan illüstrasyon" width="1672" height="941" loading="lazy" decoding="async" />
+        <a class="image-detail-link" href="assets/ikra-avrupa-egitim.png" target="_blank" rel="noopener" aria-label="Avrupa eğitim görselini büyüt (yeni sekme)">Görseli büyüt</a>
+      </figure>
+    </div>
+  </section>
+
+  <!-- IKRA v2 method -->
+  <section class="section ikra-method" aria-labelledby="ikra-method-title">
+    <div class="container">
+      <h2 class="section-title" id="ikra-method-title">IKRA Yöntemi</h2>
+      <p class="section-lead">Doğru okumayı temelden kuran eğitim yaklaşımı.</p>
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Mahreç ve doğru okuma</h3>
+          <p class="card-text">Harfleri yalnızca tanımak değil, doğru yerden ve doğru sesle okumak önceliğimizdir.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Aşamalı ilerleme</h3>
+          <p class="card-text">Öğrenci, konuları temelden başlayarak adım adım öğrenir ve pekiştirir.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Öğretmen kontrolü</h3>
+          <p class="card-text">Canlı derslerde düzenli takip ile ilerleme desteklenir.</p>
+        </article>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" routerLink="/ikra-yontemi">IKRA Yöntemini İncele</a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonial Section (reworked) -->
-  <section class="section section--muted">
+  <app-reviews [reviewIds]="['esmanur', 'leman', 'ismail']"></app-reviews>
+
+  <!-- IKRA v2 closing CTA -->
+  <section class="section closing-cta" aria-labelledby="closing-cta-title">
     <div class="container">
-      <div class="testimonial-card">
-        <p class="testimonial-quote">
-          “Kuranogren-ikra sayesinde Kur’an bilgim çok arttı! İşten sonra camiye
-          gitmeden evden rahatça ders alabildim.”
-        </p>
-        <div class="testimonial-person">
-          <img src="assets/anonym-3.png" alt="Ali" />
-          <div>
-            <div class="testimonial-name">Ali</div>
-            <div class="testimonial-role">Öğretmen</div>
-          </div>
-        </div>
+      <h2 class="section-title" id="closing-cta-title">Hangi eğitim yolunun size uygun olduğundan emin değil misiniz?</h2>
+      <p class="section-lead">İhtiyacınıza ve öğrenme düzeninize uygun IKRA eğitim seçeneğini birlikte belirleyebiliriz.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" routerLink="/iletisim">Bize Ulaşın</a>
       </div>
     </div>
   </section>

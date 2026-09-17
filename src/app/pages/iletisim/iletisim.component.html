@@ -1,109 +1,30 @@
-<!-- HERO -->
-<section class="hero-section">
-  <div class="hero-image-wrapper">
-    <img src="assets/hizm.jpg" alt="İletişim" class="hero-image" />
-    <h1 class="hero-heading">İletişim</h1>
-  </div>
-</section>
-
-<!-- CONTACT METHODS (animated cards) -->
-<section class="band band--alt">
-  <div class="contact-head">
-    <h2>Bizimle bağlantı kurun</h2>
-    <p>Size en uygun kanalı seçin: telefon, WhatsApp veya sosyal medya.</p>
-  </div>
-
-  <div class="contact-grid">
-    <a class="contact-card"
-       *ngFor="let c of contacts; let i = index"
-       [class]="'contact-card contact--' + c.theme"
-       [href]="c.href"
-       [attr.target]="isExternal(c.href) ? '_blank' : null"
-       [attr.rel]="isExternal(c.href) ? 'noopener' : null"
-       [style.animationDelay]="(i * 80) + 'ms'">
-      <span class="glow"></span>
-      <div class="icon">
-        <i [class]="c.icon"></i>
-      </div>
-      <div class="meta">
-        <h4>{{ c.label }}</h4>
-        <p>{{ c.desc }}</p>
-      </div>
-      <div class="chev" aria-hidden="true">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-    </a>
-
-    <!-- EMAIL CARD -->
-    <a class="contact-card contact--mail"
-       href="mailto:ikraeducation@outlook.com"
-       style="--mx:50%; --my:50%">
-      <span class="glow"></span>
-      <div class="icon"><i class="fas fa-envelope"></i></div>
-      <div class="meta">
-        <h4>Email</h4>
-        <p>ikraeducation@outlook.com</p>
-      </div>
-      <div class="chev"><i class="fas fa-chevron-right"></i></div>
-    </a>
-  </div>
-</section>
-
-
-<!-- REGISTRATION INFO -->
-<section class="band band--soft">
-  <div class="contact-head">
-    <h2>Kayıt İçin Bilgiler</h2>
-    <p>Derse karar verdikten sonra aşağıdaki bilgileri bize iletmeniz yeterli.</p>
-  </div>
-
- <div class="register-info">
-  <h3>Genel</h3>
-  <ul>
-    <li>Adınız ve soyadınız</li>
-    <li>Tam doğum tarihiniz</li>
-    <li>Mail adresiniz ve telefon numaranız</li>
-    <li>Memleketiniz (Türkiye / Avrupa) ve tam adresiniz</li>
-    <li>Eğitim alanı (Kur’an, Tecvid, Hıfz, Arapça vb.)</li>
-    <li>Ders süresi tercihi (30 dk / 50 dk)</li>
-    <li>Haftalık ders sayısı</li>
-    <li>Bireysel mi grup dersi mi?</li>
-    <li>Müsait olduğunuz günler ve saatler</li>
-  </ul>
-
-  <h3>Çocuk Kayıt – Ek Bilgi</h3>
-  <ul>
-    <li>Çocuğunuzun adı ve tam doğum tarihi</li>
-    <li>Çocuğunuzun cami / Kur’an geçmişi (varsa)</li>  
-    <li>Çocuğunuzun Kur’an bilgisi / seviyesi</li>
-  </ul>
-
-  <h3>Yetişkin Kayıt</h3>
-  <ul>
-    <li>Kendi Kur’an bilginiz / seviyeniz</li>
-  </ul>
-</div>
-
-
-</section>
-
-
-<!-- MAP BAND (Wiener Neustadt, Österreich) -->
-<section class="band band--soft">
-  <div class="map-wrap">
-    <div class="map-card">
-      <div class="map-head">
-        <h3>Konum</h3>
-        <p>{{ address }}</p>
-      </div>
-      <div class="map-embed">
-        <iframe
-          src="https://maps.google.com/?q=Wiener%20Neustadt%2C%20%C3%96sterreich&z=12&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          aria-label="Harita">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
+<main>
+<header class="page-intro"><div class="page-inner">
+<p class="eyebrow">IKRA EDUcation</p><h1>İletişim</h1>
+<p class="description">Eğitim seçenekleri hakkında sorularınız için bizimle iletişime geçebilirsiniz.</p>
+<nav class="direct-links" aria-label="Doğrudan iletişim">
+<a [href]="telHref">Telefon: {{ tel }}</a><a [href]="whatsapp" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:ikraeducation@outlook.com">ikraeducation@outlook.com</a>
+</nav></div></header>
+<section class="form-section"><div class="form-inner">
+<h2>Genel iletişim</h2>
+<p class="notice" id="availability">Bu form şu anda yalnızca bilgilerinizi kontrol etmenizi sağlar; yanıtlarınız gönderilmez veya kaydedilmez. Mesajınızı iletmek için yukarıdaki e-posta, telefon veya WhatsApp bağlantılarını kullanabilirsiniz.</p>
+<form [formGroup]="form" (ngSubmit)="review()" aria-describedby="availability" novalidate>
+<p>Tüm alanlar gereklidir.</p>
+<label for="name">Ad Soyad</label><input id="name" formControlName="name" autocomplete="name" maxlength="100" aria-describedby="name-error">
+<span class="error" id="name-error">@if (form.controls.name.touched && form.controls.name.invalid) { Adınızı ve soyadınızı yazın. }</span>
+<label for="contact">E-posta veya WhatsApp iletişim bilgisi</label><input id="contact" formControlName="contact" maxlength="254" aria-describedby="contact-error">
+<span class="error" id="contact-error">@if (form.controls.contact.touched && form.controls.contact.invalid) { Geçerli bir e-posta adresi veya ülke koduyla telefon numarası yazın. }</span>
+<label for="subject">Konu</label><input id="subject" formControlName="subject" maxlength="150" aria-describedby="subject-error">
+<span class="error" id="subject-error">@if (form.controls.subject.touched && form.controls.subject.invalid) { Mesajınızın konusunu yazın. }</span>
+<label for="message">Mesaj</label><textarea id="message" formControlName="message" rows="4" maxlength="1500" aria-describedby="message-error"></textarea>
+<span class="error" id="message-error">@if (form.controls.message.touched && form.controls.message.invalid) { Mesajınızı yazın. }</span>
+<button class="review-button" type="submit">Bilgilerimi Kontrol Et</button>
+<div role="status" aria-live="polite">@if (checked) {
+@if (form.invalid) { <p class="notice">Lütfen eksik veya geçersiz alanları kontrol edin.</p> }
+@else { <p class="notice">Gerekli alanlar tamamlandı. Mesajınız gönderilmedi. Bizimle e-posta, telefon veya WhatsApp üzerinden iletişime geçebilirsiniz.</p> }
+}</div></form>
+<section class="notice" aria-labelledby="applications"><h2 id="applications">Eğitim başvuruları</h2>
+<p>Eğitim seçeneklerini değerlendirmek için ilgili kısa formu kullanabilirsiniz.</p>
+<nav class="direct-links" aria-label="Eğitim başvuruları"><a routerLink="/canli-grup-basvuru">Canlı Grup Başvuru Formu</a></nav></section>
+<nav class="direct-links" aria-label="Sosyal medya"><a [href]="instagramUrl" target="_blank" rel="noopener">Instagram</a><a [href]="facebookUrl" target="_blank" rel="noopener">Facebook</a></nav>
+</div></section></main>

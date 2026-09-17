@@ -2,91 +2,17 @@
 <section class="hero-section">
   <div class="hero-image-wrapper">
     <img src="assets/hizm.jpg" alt="Deneyimler" class="hero-image" />
-    <h1 class="hero-heading">Deneyimler</h1>
+    <h1 class="hero-heading">Öğrenci deneyimleri</h1>
   </div>
 </section>
 
-<!-- INTRO + STATS -->
 <section class="intro">
   <div class="intro-inner">
-    <h2>Öğrencilerimiz ne diyor?</h2>
-    <p>Esnek saatler, bire bir ilgi ve güçlü materyallerle binlerce dersten süzülen deneyimler.</p>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">4.9</div>
-        <div class="stat-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="stat-label">Memnuniyet</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">1200+</div>
-        <div class="stat-label">Saat Ders</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">300+</div>
-        <div class="stat-label">Öğrenci</div>
-      </div>
-    </div>
-
     <div class="intro-actions">
-      <button (click)="iletisimeGec()">İletişime geç</button>
-      <a class="ghost-btn" (click)="fiyatlariGor()">Fiyatları gör</a>
+      <a class="primary-btn" routerLink="/iletisim">İletişime geç</a>
+      <a class="ghost-btn" routerLink="/egitimler">Eğitimleri incele</a>
     </div>
   </div>
 </section>
 
-<div class="section-sep"></div>
-
-<!-- FILTERS -->
-<section class="band band--soft">
-  <div class="filters">
-    <button *ngFor="let f of filters"
-            class="chip"
-            [class.active]="activeFilter === f"
-            type="button"
-            (click)="setFilter(f)">
-      {{ f }}
-    </button>
-  </div>
-
-  <!-- TESTIMONIALS GRID -->
-  <div class="testimonials-grid">
-    <article class="testimonial-card" *ngFor="let t of filteredTestimonials">
-      <div class="t-header">
-        <img [src]="t.avatar" (error)="onImgError($event)" [alt]="t.name" class="avatar" />
-        <div class="meta">
-          <h4>{{ t.name }}</h4>
-          <span class="role">{{ t.role }}</span>
-        </div>
-        <div class="rating">
-          <ng-container *ngFor="let s of stars">
-            <i class="{{ s <= t.rating ? 'fas fa-star' : 'far fa-star' }}"></i>
-          </ng-container>
-        </div>
-      </div>
-
-      <p class="quote">
-        “{{ t.quote }}”
-      </p>
-
-      <ul class="tags">
-        <li *ngFor="let tag of t.tags">{{ tag }}</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-band">
-  <div class="cta-inner">
-    <h3>Sizde deneyiminizi yaşayın</h3>
-    <p>Hedefinizi söyleyin, birlikte planlayalım.</p>
-    <div class="cta-actions">
-      <button (click)="iletisimeGec()">İletişime geç</button>
-      <a class="ghost-btn" (click)="fiyatlariGor()">Fiyatları gör</a>
-    </div>
-  </div>
-</section>
+<app-reviews [reviewIds]="['esmanur', 'burcu', 'leman', 'ismail', 'nedime', 'dilek']" [showMore]="false"></app-reviews>
