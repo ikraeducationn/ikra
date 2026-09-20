@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 
 describe('IKRA v2 page routes', () => {
   const pages = [
+    ['/online-kuran-egitimi', 'Online Kur’an Eğitimi'],
     ['/impressum', 'Impressum'],
     ['/anasayfa', 'Kur’an öğreniminde size uygun yolu seçin.'],
     ['/deneyimler', 'Öğrenci deneyimleri'],

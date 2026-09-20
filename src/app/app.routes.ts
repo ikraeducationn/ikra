@@ -10,6 +10,7 @@ import { IletisimComponent } from './pages/iletisim/iletisim.component';
 import { ImpressumComponent } from './pages/impressum/impressum.component';
 
 export const routes: Routes = [
+  { path: 'online-kuran-egitimi', loadComponent: () => import('./pages/online-kuran-egitimi/online-kuran-egitimi.component').then(m => m.OnlineKuranEgitimiComponent) },
   { path: 'canli-grup-basvuru', loadComponent: () => import('./pages/canli-grup-basvuru/canli-grup-basvuru.component').then(m => m.CanliGrupBasvuruComponent) },
   { path: 'uyelik-basvuru', loadComponent: () => import('./pages/uyelik-sistemi/uyelik-sistemi.component').then(m => m.UyelikSistemiComponent) },
   { path: 'gencler', loadComponent: () => import('./pages/gencler/gencler.component').then(m => m.GenclerComponent) },
