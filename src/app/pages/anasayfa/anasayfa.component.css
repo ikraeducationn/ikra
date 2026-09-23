@@ -286,3 +286,34 @@
 .europe-figure img { display: block; width: 100%; height: auto; border-radius: var(--ikra-card-radius); }
 .image-detail-link { display: inline-block; margin-top: 8px; padding: 8px 0; color: var(--ikra-primary); font-size: .9rem; text-underline-offset: 3px; }
 .image-detail-link:focus-visible { outline: 2px solid var(--ikra-primary); outline-offset: 4px; }
+.educator-card {
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--ikra-border);
+  border-radius: var(--ikra-card-radius);
+  background: var(--ikra-white);
+}
+
+.educator-card h3 {
+  margin: 0 0 16px;
+  color: var(--ikra-primary);
+}
+
+.educator-card p {
+  max-width: 78ch;
+  margin: 0 0 16px;
+  line-height: 1.7;
+}
+
+.educator-card .educator-name {
+  margin-bottom: 4px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.educator-card .educator-label {
+  color: var(--ikra-muted);
+}
+
+.educator-card p:last-child {
+  margin-bottom: 0;
+}
