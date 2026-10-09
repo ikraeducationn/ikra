@@ -13,6 +13,21 @@ describe('Online Quran education SEO route', () => {
 
   beforeEach(() => TestBed.configureTestingModule({ providers: [provideRouter(routes)] }));
 
+  it('renders a crawlable root link with a trailing slash without changing index metadata', async () => {
+    const titles = TestBed.inject(Title);
+    const meta = TestBed.inject(Meta);
+    const initialTitle = titles.getTitle();
+    const initialDescription = meta.getTag('name="description"')?.content;
+    const harness = await RouterTestingHarness.create('/');
+    const link = harness.routeNativeElement!.querySelector<HTMLAnchorElement>(`a[href="${path}/"]`);
+    expect(link?.textContent).toBe('Kur’an eğitimi');
+    expect(titles.getTitle()).toBe(initialTitle);
+    expect(meta.getTag('name="description"')?.content).toBe(initialDescription);
+    await harness.navigateByUrl(path + '/');
+    expect(harness.routeNativeElement!.querySelector('h1')?.textContent).toBe('Online Kur’an Eğitimi');
+    expect(TestBed.inject(DOCUMENT).querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(canonical);
+  });
+
   it('renders one H1, exact route metadata and the five internal destinations', async () => {
     const harness = await RouterTestingHarness.create(path);
     const document = TestBed.inject(DOCUMENT);
@@ -36,7 +51,7 @@ describe('Online Quran education SEO route', () => {
     const homeTitle = titles.getTitle();
     const homeDescription = meta.getTag('name="description"')!.content;
     const organization = document.getElementById('ikra-organization-schema')!.textContent;
-    expect(harness.routeNativeElement!.querySelectorAll(`a[href="${path}"]`).length).toBe(1);
+    expect(harness.routeNativeElement!.querySelectorAll(`a[href="${path}/"]`).length).toBe(1);
     await harness.navigateByUrl(path);
     expect(titles.getTitle()).toBe(title);
     expect(document.getElementById('ikra-organization-schema')).toBeNull();

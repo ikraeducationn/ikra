@@ -36,6 +36,9 @@ await readFile(notFound, 'utf8');
 if (!html.includes('<base href="/ikra/">')) {
   throw new Error('Expected a GitHub Pages build with base href /ikra/. Run npm run build:pages.');
 }
+if (!/<a\b[^>]*\bhref="\/ikra\/online-kuran-egitimi\/"[^>]*>/.test(html)) {
+  throw new Error('Expected a crawlable landing-page link in the prerendered root index.html.');
+}
 
 await rm(target, { recursive: true, force: true });
 await cp(source, target, { recursive: true });

@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 
 describe('IKRA v2 page routes', () => {
   const pages = [
+    ['/', 'Kur’an öğreniminde size uygun yolu seçin.'],
     ['/online-kuran-egitimi', 'Online Kur’an Eğitimi'],
     ['/impressum', 'Impressum'],
     ['/anasayfa', 'Kur’an öğreniminde size uygun yolu seçin.'],
@@ -56,7 +57,7 @@ describe('IKRA v2 page routes', () => {
         expect(href?.startsWith('javascript:')).toBeFalse();
         expect(href?.includes('/ikra/')).toBeFalse();
         if (href?.startsWith('/')) {
-          expect(paths).withContext(url + ': unknown route ' + href).toContain(href);
+          expect(paths).withContext(url + ': unknown route ' + href).toContain(href.replace(/\/$/, '') || '/');
         }
       }
       if (['/cocuklar', '/gencler', '/canli-grup-dersleri'].includes(url)) {
