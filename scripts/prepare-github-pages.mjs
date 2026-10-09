@@ -29,6 +29,11 @@ const entry = (await inspect(join(source, 'index.html')))?.isFile()
   ? 'index.html'
   : 'index.csr.html';
 const html = await readFile(join(source, entry), 'utf8');
+// Both the discovery link and its actual prerendered destination must be present.
+const landingHtml = await readFile(join(source, 'online-kuran-egitimi', 'index.html'), 'utf8');
+if (!landingHtml.includes('https://ikraeducationn.github.io/ikra/online-kuran-egitimi/')) {
+  throw new Error('Expected the prerendered landing page with its canonical URL.');
+}
 // Use the prerendered not-found page so the error message also works without JavaScript.
 const notFound = join(source, 'sayfa-bulunamadi', 'index.html');
 await readFile(notFound, 'utf8');

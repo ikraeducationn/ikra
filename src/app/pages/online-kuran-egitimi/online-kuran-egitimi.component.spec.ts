@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, Location } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 import { Meta, Title } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
@@ -23,7 +23,8 @@ describe('Online Quran education SEO route', () => {
     expect(link?.textContent).toBe('Kur’an eğitimi');
     expect(titles.getTitle()).toBe(initialTitle);
     expect(meta.getTag('name="description"')?.content).toBe(initialDescription);
-    await harness.navigateByUrl(path + '/');
+    // Native href navigation uses Angular's initial URL normalization.
+    await harness.navigateByUrl(TestBed.inject(Location).normalize(link!.getAttribute('href')!));
     expect(harness.routeNativeElement!.querySelector('h1')?.textContent).toBe('Online Kur’an Eğitimi');
     expect(TestBed.inject(DOCUMENT).querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(canonical);
   });
